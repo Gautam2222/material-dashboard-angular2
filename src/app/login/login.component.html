@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Medical Login</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+</head>
+
+<body class="login-page off-canvas-sidebar">
+    <div class="wrapper wrapper-full-page">
+        <div filter-color="black" class="page-header login-page header-filter"
+            style="background-image: url('./assets/img/login.jpg'); background-size: cover; background-position: top center;">
+            <div class="container">
+                <div class="row">
+                    <div *ngIf="showLogin" class="col-lg-5 col-md-6 col-sm-6 ml-auto mr-auto">
+                        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form">
+                            <div class="card card-login">
+                                <div class="card-header card-header-rose text-center">
+                                    <h4 class="card-title">Log in</h4>
+                                    <div class="social-line"><a href="#pablo"
+                                            class="btn btn-just-icon btn-link btn-white"><i
+                                                class="fa fa-facebook-square"></i></a><a href="#pablo"
+                                            class="btn btn-just-icon btn-link btn-white"><i
+                                                class="fa fa-twitter"></i></a><a href="#pablo"
+                                            class="btn btn-just-icon btn-link btn-white"><i
+                                                class="fa fa-google-plus"></i></a></div>
+                                </div>
+                                <div class="card-body"> <br>
+                                    <span class="bmd-form-group">
+                                        <div class="input-group" >
+                                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                                        class="material-icons">email</i></span></div>
+                                            <input type="email" formControlName="email" placeholder="Email..."
+                                                class="form-control">
+                                        </div>
+                                        <small
+                                            *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')"
+                                            class="error-text">
+                                            Email required</small>
+                                    </span>
+                                    <span class="bmd-form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                                        class="material-icons">lock_outline</i></span></div>
+                                            <input formControlName="password" type="password" placeholder="Password..."
+                                                class="form-control">
+
+                                        </div>
+                                        <small
+                                            *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+                                            class="error-text">Password required</small>
+                                    </span>
+                                    <div class="form-group has-default">
+                                        <div class="input-group" style="padding-left: 21px;">
+                                            <mat-checkbox formControlName="rememberMe" class="mat-checkbox form-check mat-accent"
+                                                id="mat-checkbox-5">
+                                                <span>Remember me
+                                                </span>
+                                            </mat-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer justify-content-center">
+                                    <button  
+                                        class="btn btn-primary btn-round mt-4">Login</button>
+                                </div>
+                                <hr>
+                                <!-- [disabled]="loginForm.invalid" -->
+                                <span style="font-size: 12px;text-align: center;">Don't have an Account? Click to
+                                    <a (click)="loginSignup(false)" href="#sign-up"> Sign-Up</a>. </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div *ngIf="!showLogin" class="col-md-10 ml-auto mr-auto">
+                        <div class="card card-signup">
+                            <div class="card-header card-header-rose text-center">
+                                <h4 class="card-title">Register</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-5 ml-auto">
+                                        <div class="info info-horizontal" style="padding: 0px;">
+                                            <div class="icon icon-rose"><i class="material-icons">timeline</i></div>
+                                            <div class="description">
+                                                <h4 class="info-title">Marketing</h4>
+                                                <p class="description"> We've created the marketing campaign of the
+                                                    website. It was a very interesting collaboration. </p>
+                                            </div>
+
+                                            <div class="icon icon-primary"><i class="material-icons">code</i></div>
+                                            <div class="description">
+                                                <h4 class="info-title">Fully Coded in HTML5</h4>
+                                                <p class="description"> We've developed the website with HTML5 and CSS3.
+                                                    The client has access to the code using GitHub. </p>
+                                            </div>
+
+                                            <div class="icon icon-info"><i class="material-icons">group</i></div>
+                                            <div class="description">
+                                                <h4 class="info-title">Built Audience</h4>
+                                                <p class="description"> There is also a Fully Customizable CMS Admin
+                                                    Dashboard for this product. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 mr-auto">
+                                        <div class="social text-center"><button mat-raised-button=""
+                                                class="btn btn-just-icon btn-round btn-twitter mat-raised-button mat-button-base"><span
+                                                    class="mat-button-wrapper"><i class="fa fa-twitter"></i></span>
+                                                <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                                                <div class="mat-button-focus-overlay"></div>
+                                            </button><button mat-raised-button=""
+                                                class="btn btn-just-icon btn-round btn-dribbble mat-raised-button mat-button-base"><span
+                                                    class="mat-button-wrapper"><i class="fa fa-dribbble"></i></span>
+                                                <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                                                <div class="mat-button-focus-overlay"></div>
+                                            </button><button mat-raised-button=""
+                                                class="btn btn-just-icon btn-round btn-facebook mat-raised-button mat-button-base"><span
+                                                    class="mat-button-wrapper"><i class="fa fa-facebook"></i></span>
+                                                <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                                                <div class="mat-button-focus-overlay"></div>
+                                            </button>
+                                        </div>
+                                        <form novalidate="" method="" action=""
+                                            class="form ng-untouched ng-pristine ng-valid">
+                                            <div class="form-group has-default">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                                                class="material-icons">face</i></span></div><input
+                                                        type="text" placeholder="Full Name..." class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-default">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                                                class="material-icons">mail</i></span></div><input
+                                                        type="text" placeholder="Email..." class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-default">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                                                class="material-icons">lock_outline</i></span></div>
+                                                    <input type="password" placeholder="Password..."
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-default">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                                                class="material-icons">phone</i></span></div>
+                                                    <input type="number" placeholder="Mobile..." class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group has-default">
+                                                <div class="input-group" style="padding-left: 21px;">
+                                                    <mat-checkbox class="mat-checkbox form-check mat-accent"
+                                                        id="mat-checkbox-5">
+                                                        <span> I agree to the
+                                                            <a href="#something">terms and conditions</a>. </span>
+                                                    </mat-checkbox>
+                                                </div>
+                                            </div>
+
+                                            <div class="text-center"><a href="#pablo"
+                                                    class="btn btn-primary btn-round mt-4">Get Register</a></div>
+                                            <hr>
+                                            <span style="font-size: 12px;text-align: center;"> Already have an Account?
+                                                Click to
+                                                <a (click)="loginSignup(true)" href="#login"> Login</a>. </span>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <nav class="pull-left">
+                        <ul>
+                            <li><a href="#"> About Us </a></li>
+                            <li><a href="#"> Blog </a></li>
+                            <li><a href="#"> Licenses </a></li>
+                        </ul>
+                    </nav>
+                    <div class="copyright pull-right"> © 2023, made with <i class="material-icons">favorite</i> by <a
+                            href="#" target="_blank">Gupta Medical</a> for a better web.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
