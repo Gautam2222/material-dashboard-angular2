@@ -30,12 +30,14 @@ export class LoginComponent implements OnInit {
       //login
       this.logService.login(this.loginForm.value).subscribe({
         next:(res)=>{ 
+          debugger
           console.log(res.message); 
 
           ValidateForm.ShowMessage(res);
           this.loginForm.reset();
           this.router.navigate(['dashboard'])
         },error:(err)=>{
+          debugger
           ValidateForm.ShowMessage(err.error);
         }
       })  
